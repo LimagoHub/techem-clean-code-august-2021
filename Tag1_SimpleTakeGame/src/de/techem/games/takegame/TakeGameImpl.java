@@ -25,8 +25,9 @@ public class TakeGameImpl implements Game {
 	}
 
 	private void executeTurns() {
-		computerTurn();
 		humanTurn();
+		computerTurn();
+		
 		
 	}
 
