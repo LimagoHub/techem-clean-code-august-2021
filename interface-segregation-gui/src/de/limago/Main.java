@@ -16,6 +16,8 @@ public class Main extends Frame {
             public void windowClosing(WindowEvent e) {
                beenden();
             }
+
+
         });
         add(button);
     }
