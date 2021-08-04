@@ -2,4 +2,8 @@
 s	java:S135"YReduce the total number of break and continue statements in this loop to use at most one.(˜ïˆÿÿÿÿÿ
 D
 java:S6212"/Declare this local variable with "var" instead.(«•l
+Q
+java:S6212"/Declare this local variable with "var" instead.(ª©½’üÿÿÿÿ8¶ÌÁÿ°/
 N	java:S106"9Replace this use of System.out or System.err by a logger.(‘ıãÆ
+L
+java:S6212"/Declare this local variable with "var" instead.(Ü¥ãù8ºÌÁÿ°/

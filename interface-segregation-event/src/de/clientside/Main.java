@@ -18,8 +18,8 @@ public class Main {
 	private void run() {
 		Schwein piggy = new Schwein("Miss Piggy");
 
-		piggy.addPigTooFatListener(metzger);
-		piggy.addPigTooFatListener(spediteur);
+		piggy.addPigTooFatListener(e->metzger.schlachten());
+		piggy.addPigTooFatListener(spediteur::fahren);
 
 		for (int i = 0; i < 11; i++) {
 			piggy.fuettern();
@@ -27,24 +27,30 @@ public class Main {
 		}
 
 	}
+	/*
+	class SchweineMetzgerAdapter implements  PigTooFatListener {
 
+		@Override
+		public void pigTooFat(Schwein dickesSchwein) {
+			metzger.schlachten(dickesSchwein);
+		}
+	}
+*/
 }
 
 
-class Metzger implements PigTooFatListener {
+class Metzger {
 
-
-	@Override
-	public void pigTooFat(Schwein dickesSchwein) {
+	public void schlachten() {
 		System.out.println("Messer wetz");
 	}
 }
 
-class Spediteur implements PigTooFatListener {
+class Spediteur {
 
 
-	@Override
-	public void pigTooFat(Schwein dickesSchwein) {
+
+	public void fahren(Object ware) {
 		System.out.println("Wir fahren auf der Autobahn");
 
 	}
