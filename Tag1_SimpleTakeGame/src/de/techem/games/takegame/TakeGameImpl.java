@@ -1,68 +1,82 @@
 package de.techem.games.takegame;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import de.techem.games.Game;
+import de.techem.games.takegame.player.TakeGamePlayer;
 
 public class TakeGameImpl implements Game {
 	
 	private static final String INVALID_TURN = "Ungültiger Zug";
-	private static final String USER_PROMPT = "Es gibt %s Steine. Bitte nehmen Sie 1,2 oder 3.\n";
-	private Scanner scanner = new Scanner(System.in);
+	
+	private List<TakeGamePlayer> players = new ArrayList<>();
 	private int stones;
-	private boolean gameover;
+	private int turn;
+	private TakeGamePlayer currentPlayer;
 	
 	public TakeGameImpl() {
 		stones = 23;
-		gameover = false;
+		
+	}
+	
+	private boolean isGameOver() {
+		return stones < 1 || players.isEmpty();
+	}
+	
+	public void addPlayer(TakeGamePlayer player) {
+		players.add(player);
+	}
+
+	
+	public void removePlayer(TakeGamePlayer player) {
+		players.remove(player);
 	}
 
 	@Override
 	public void play() {
-		while(! gameover) {
+		while(! isGameOver()) {
 			executeTurns();
 		}
 	}
 
-	private void executeTurns() {
-		humanTurn();
-		computerTurn();
-		
-		
+	private void executeTurns() { 
+		for (TakeGamePlayer player : players) {
+			currentPlayer = player;
+			executeSingleTurn();
+		}
 	}
 
-	private void humanTurn() {
-		int turn;
+	private void executeSingleTurn() {
+		if(isGameOver()) return;
+		
 		while(true) {
-			System.out.printf(USER_PROMPT , stones);
-			turn = scanner.nextInt();
+			turn = currentPlayer.doTurn(stones);
 			if(turn >= 1 && turn <= 3) break;
 			System.out.println(INVALID_TURN);
 					
 		}
-		stones -= turn;
+		terminateTurn();
 	}
 
-	private void computerTurn() {
-		final int turns [] = {3,1,1,2};
-		int turn;
-		
-		if(stones <= 0) {
-			System.out.println("Du Loser");
-			gameover = true;
-			return ;
-		}
-		
-		if(stones == 1) {
-			System.out.println("Du hast nur Glück gehabt");
-			gameover = true;
-			return ;
-		}
-		
-		turn = turns[stones % 4];
-		System.out.printf("Compuer nimmt %s Steine.\n", turn);
-		stones -= turn;
-		
+	
+	private void terminateTurn() { 
+		updateBoard();
+		checkLosing();
 	}
+	
+	private void checkLosing() {
+		if(isGameOver()) {
+			System.out.println(currentPlayer.getName() +  "  hat verloren");
+		}
+	}
+	
+	private void updateBoard() {
+		stones -= turn;
+	}
+	
+
+	
 
 }
