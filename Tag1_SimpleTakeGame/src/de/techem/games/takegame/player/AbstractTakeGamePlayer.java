@@ -1,22 +1,20 @@
 package de.techem.games.takegame.player;
 
-public abstract class AbstractTakeGamePlayer implements TakeGamePlayer {
-	
-	
-	private String name = this.getClass().getSimpleName();
-	
+import de.techem.games.players.AbstractGamePlayer;
+
+public abstract class AbstractTakeGamePlayer extends AbstractGamePlayer<Integer, Integer> {
+
 	public AbstractTakeGamePlayer() {
-	
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	public AbstractTakeGamePlayer(String name) {
-		this.name = name;
+		super(name);
+		// TODO Auto-generated constructor stub
 	}
 	
 	
-	@Override
-	public String getName() {
-		return name;
-	}
+	
 	
 }

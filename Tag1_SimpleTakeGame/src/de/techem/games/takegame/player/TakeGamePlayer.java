@@ -1,8 +1,9 @@
 package de.techem.games.takegame.player;
 
-public interface TakeGamePlayer {
+import de.techem.games.players.GamePlayer;
+
+public interface TakeGamePlayer extends GamePlayer<Integer, Integer>{
 	
-	String getName();
-	Integer doTurn(final Integer board);
+	
 
 }
