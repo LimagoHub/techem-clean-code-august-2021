@@ -11,7 +11,7 @@ public abstract class AbstractGame<BOARD,TURN> implements Game {
 
 	
 	private static final String GAME_OVER_MESSAGE = "%s hat verloren";
-	private static final String INVALID_TURN = "Ung�ltiger Zug";
+	private static final String INVALID_TURN = "Ungueltiger Zug";
 	
 	private final Writer writer;
 	
@@ -66,7 +66,7 @@ public abstract class AbstractGame<BOARD,TURN> implements Game {
 	}
 	
 	private boolean initTurn() {
-		print(String.format("Spieler %s ist am Zug", getCurrentPlayer().getName()));
+		//print(String.format("Spieler %s ist am Zug", getCurrentPlayer().getName()));
 		return isGameOver();
 	}
 

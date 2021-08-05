@@ -13,9 +13,9 @@ public class Main {
 	public static void main(String[] args) {
 		AbstractGame<Integer, Integer> game = new TakeGameImpl(new ConsoleWriter());
 		game.addPlayer(new HumanPlayer("Fritz"));
-		game.addPlayer(new HumanPlayer("Franz"));
+		//game.addPlayer(new HumanPlayer("Franz"));
 		game.addPlayer(new ComputerPlayer());
-		game.addPlayer(new OmaPlayer());
+		//game.addPlayer(new OmaPlayer());
 		GameClient client = new GameClient(game);
 		client.run();
 
