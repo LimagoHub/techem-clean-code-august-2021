@@ -17,3 +17,19 @@ O
 src/de/commands/SubCommand.java,c\2\c2bfb8b9e2ce5e88bf0855a1c7010a17f2bd1d64
 U
 %src/de/commands/TranslateCommand.java,7\4\740e11ba0471e3d34d0645fc83f8738e1477ec24
+E
+src/de/main/Main.java,9\5\95108640daf5c85dd1038b92f20f21f2ba7b900b
+L
+src/de/commands/Command.java,b\c\bc911f3c80f550e4ac67d89692edf707e52463b0
+S
+#src/de/commands/CommandHistory.java,8\b\8bd84aed86339cb430c471ede1ce0455842ee0fc
+O
+src/de/commands/AddCommand.java,f\7\f7e395ca2ade65103a96379ce71a571dce83ca07
+S
+#src/de/commands/CommandFactory.java,9\3\938a6f889aba483b3a777652ed8e50670b0260e3
+R
+"src/de/math/CalculatorMemento.java,5\f\5f0bb33270d9836d6ffc001333cdfcff222bd8c6
+K
+src/de/math/Calculator.java,e\8\e8db25f89915a58117bda14178d1f7ca0e214d05
+P
+ src/de/commands/MultCommand.java,9\3\935c6b358c34b1eaf98e3328aa38ed1a6e21dd4d
