@@ -1,5 +1,7 @@
 package de.techem.games.takegame.player;
 
+import de.techem.io.Writer;
+
 public class ComputerPlayer extends AbstractTakeGamePlayer {
 
 	private static final int TURNS [] = {3,1,1,2};
@@ -11,11 +13,15 @@ public class ComputerPlayer extends AbstractTakeGamePlayer {
 		super(name);
 		
 	}
+	
+	public ComputerPlayer(Writer writer) {
+		setWriter(writer);
+	}
 
 	@Override
 	public Integer doTurn(Integer board) {
 		int turn = TURNS[board % 4];
-		System.out.printf("Computer nimmt %s Steine.\n", turn);
+		getWriter().write(String.format("Computer nimmt %s Steine.", turn));
 		return turn;
 	}
 

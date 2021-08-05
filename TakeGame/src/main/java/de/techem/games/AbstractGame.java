@@ -10,26 +10,21 @@ import de.techem.io.Writer;
 public abstract class AbstractGame<BOARD,TURN> implements Game {
 
 	
-	private static final String GAME_OVER_MESSAGE = "%s  hat verloren";
-	private static final String INVALID_TURN = "Ungültiger Zug";
+	private static final String GAME_OVER_MESSAGE = "%s hat verloren";
+	private static final String INVALID_TURN = "Ungï¿½ltiger Zug";
 	
 	private final Writer writer;
 	
 	protected BOARD board;
 	protected TURN turn;
-	
-	
+	private List<GamePlayer<BOARD, TURN>> players = new ArrayList<>();
+	private GamePlayer<BOARD, TURN> currentPlayer;
 	
 	
 	protected AbstractGame(final Writer writer) {
 		this.writer = writer;
 	}
 
-	private List<GamePlayer<BOARD, TURN>> players = new ArrayList<>();
-	
-	
-	private GamePlayer<BOARD, TURN> currentPlayer;
-	
 	protected GamePlayer<BOARD, TURN> getCurrentPlayer() {
 		return currentPlayer;
 	}
@@ -37,7 +32,6 @@ public abstract class AbstractGame<BOARD,TURN> implements Game {
 	protected void setCurrentPlayer(GamePlayer<BOARD, TURN>currentPlayer) {
 		this.currentPlayer = currentPlayer;
 	}
-	
 	
 	protected List<GamePlayer<BOARD, TURN>> getPlayers() {
 		return Collections.unmodifiableList(players);
@@ -47,11 +41,9 @@ public abstract class AbstractGame<BOARD,TURN> implements Game {
 		players.add(player);
 	}
 
-	
 	public void removePlayer(GamePlayer<BOARD,TURN>  player) {
 		players.remove(player);
 	}
-
 
 	@Override
 	public void play() {
@@ -60,7 +52,6 @@ public abstract class AbstractGame<BOARD,TURN> implements Game {
 	
 	private void executeTurns() { 
 		for (GamePlayer<BOARD,TURN> player : getPlayers()) 	executeTurnForPlayer(player);
-		
 	}
 	
 	private void executeTurnForPlayer(GamePlayer<BOARD,TURN> player) {
@@ -80,9 +71,7 @@ public abstract class AbstractGame<BOARD,TURN> implements Game {
 	}
 
 	private void invokeCurrentPlayersTurn() { 
-		
 		do 	turn = getCurrentPlayer().doTurn(board);  while(invalidTurn());
-
 	}
 	
 
@@ -97,9 +86,6 @@ public abstract class AbstractGame<BOARD,TURN> implements Game {
 		return true;
 	}
 
-	
-
-	
 	private void checkLosing() {
 		if(isGameOver()) 	print(String.format( GAME_OVER_MESSAGE, getCurrentPlayer().getName() ));
 	
