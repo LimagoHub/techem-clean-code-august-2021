@@ -1,6 +1,6 @@
 package de.techem.main;
 
-import de.techem.GameClient;
+import de.techem.client.GameClient;
 import de.techem.games.AbstractGame;
 import de.techem.games.takegame.TakeGameImpl;
 import de.techem.games.takegame.player.ComputerPlayer;

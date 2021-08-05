@@ -1,4 +1,4 @@
-package de.techem;
+package de.techem.client;
 
 import de.techem.games.Game;
 
