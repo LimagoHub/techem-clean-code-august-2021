@@ -9,7 +9,7 @@ public abstract class AbstractGamePlayer<BOARD,TURN> implements GamePlayer<BOARD
 	private String name = this.getClass().getSimpleName();
 	private Writer writer = new ConsoleWriter();
 	
-	public AbstractGamePlayer() {
+	protected AbstractGamePlayer() {
 		
 	}
 	

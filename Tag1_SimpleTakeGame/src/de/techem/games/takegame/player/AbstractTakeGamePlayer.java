@@ -6,12 +6,12 @@ public abstract class AbstractTakeGamePlayer extends AbstractGamePlayer<Integer,
 
 	public AbstractTakeGamePlayer() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public AbstractTakeGamePlayer(String name) {
 		super(name);
-		// TODO Auto-generated constructor stub
+		
 	}
 	
 	

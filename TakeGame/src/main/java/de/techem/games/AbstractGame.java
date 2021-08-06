@@ -7,6 +7,13 @@ import java.util.List;
 import de.techem.games.players.GamePlayer;
 import de.techem.io.Writer;
 
+/**
+ * 
+ * @author JoachimWagner
+ *
+ * @param <BOARD>
+ * @param <TURN>
+ */
 public abstract class AbstractGame<BOARD,TURN> implements Game {
 
 	
@@ -29,14 +36,22 @@ public abstract class AbstractGame<BOARD,TURN> implements Game {
 		return currentPlayer;
 	}
 
+	// kommentar
 	protected void setCurrentPlayer(GamePlayer<BOARD, TURN>currentPlayer) {
 		this.currentPlayer = currentPlayer;
 	}
 	
+	
+	
 	protected List<GamePlayer<BOARD, TURN>> getPlayers() {
+		
 		return Collections.unmodifiableList(players);
 	}
 	
+	
+	/**
+	 * 
+	 */
 	public void addPlayer(GamePlayer<BOARD,TURN> player) {
 		players.add(player);
 	}
@@ -66,7 +81,7 @@ public abstract class AbstractGame<BOARD,TURN> implements Game {
 	}
 	
 	private boolean initTurn() {
-		//print(String.format("Spieler %s ist am Zug", getCurrentPlayer().getName()));
+		
 		return isGameOver();
 	}
 

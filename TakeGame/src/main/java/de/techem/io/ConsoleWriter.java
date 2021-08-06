@@ -1,12 +1,14 @@
 package de.techem.io;
 
+import java.util.logging.Logger;
+
 public class ConsoleWriter implements Writer {
 
 
-
+	Logger logger = Logger.getAnonymousLogger();
 	@Override
 	public void write(String message) {
-		System.out.println(message);
+		logger.info(message);
 
 	}
 
